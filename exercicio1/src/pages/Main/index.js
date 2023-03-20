@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import UserContext from '../../contexts/UserContext';
 import UsersList from '../../components/UsersList';
 import UsersRegister from '../../components/UsersRegister';
 import './styles.css';
@@ -18,23 +19,11 @@ export default function Main() {
   }
 
   return (
-    <div className="container-main">
-
-      <UsersRegister
-        usersData={usersData}
-        setUsersData={setUsersData}
-        setUserInEditing={setUserInEditing}
-        userInEditing={userInEditing}
-      />
-
-      <UsersList
-        usersData={usersData}
-        setUsersData={setUsersData}
-        setUserInEditing={setUserInEditing}
-        userInEditing={userInEditing}
-        handleDeleteUser={handleDeleteUser}
-      />
-
-    </div>
+    <UserContext.Provider value={{ usersData, setUsersData, setUserInEditing, userInEditing, handleDeleteUser }}>
+      <div className="container-main">
+        <UsersRegister />
+        <UsersList />
+      </div>
+    </UserContext.Provider>
   );
 }

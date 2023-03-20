@@ -1,9 +1,12 @@
+import { useContext } from 'react';
+import UserContext from '../../contexts/UserContext';
 import UsersIcon from '../../assets/users.svg';
 import Empty from '../Empty';
 import UsersReport from '../UsersReport';
 import './styles.css';
 
-function UsersList({ usersData, setUserInEditing, handleDeleteUser }) {
+function UsersList() {
+  const { usersData, setUserInEditing, handleDeleteUser } = useContext(UserContext)
 
   return (
     <div className="right">

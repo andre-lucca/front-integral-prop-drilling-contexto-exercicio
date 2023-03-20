@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import UserContext from '../../contexts/UserContext';
 import './styles.css';
 
-function UsersRegister({
-  userInEditing,
-  setUserInEditing,
-  usersData,
-  setUsersData
-}) {
+function UsersRegister() {
+  const {
+    userInEditing,
+    setUserInEditing,
+    usersData,
+    setUsersData
+  } = useContext(UserContext)
+
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
 
