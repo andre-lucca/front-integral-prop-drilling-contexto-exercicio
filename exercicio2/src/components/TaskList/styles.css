@@ -1,0 +1,36 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px;
+
+  border-bottom: 1px solid silver;
+  transition: background-color 300ms linear;
+}
+
+.task-item:hover {
+  background-color: gainsboro;
+}
+
+.task-item:hover .trash-container {
+  visibility: visible;
+}
+
+.trash-container {
+  visibility: hidden;
+
+  padding: 5px;
+
+  line-height: 0;
+
+  border-radius: 4px;
+  color: white;
+  background-color: orangered;
+  transition: filter 100ms linear;
+}
+
+.trash-container:hover {
+  cursor: pointer;
+  filter: brightness(.95);
+}
